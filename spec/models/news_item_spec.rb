@@ -9,5 +9,4 @@ describe NewsItem do
     expect { NewsItem.create!(:source_id => @source.id, :title => @item.title, :link => @item.link, :description => @item.description, :published_at => @item.published_at) }.to raise_error
   end
 
-#  pending "add some examples to (or delete) #{__FILE__}"
 end
