@@ -2,7 +2,6 @@ class Source < ActiveRecord::Base
   belongs_to :source_category
 
   def get_new_items
-    #feed = Feedzirra::Feed.fetch_and_parse("http://feeds.feedburner.com/PaulDixExplainsNothing")
     feed = get_feed_content
     items = Array.new
     feed.entries.each do |i|
@@ -11,8 +10,12 @@ class Source < ActiveRecord::Base
       item.title = i.title
       item.description = i.summary
       item.published_at = i.published
-      item.save!
-      items << item
+      begin
+        item.save!
+        items << item
+      rescue Exception => e
+        next if message.match(/item already exists/)
+      end
     end
     return items
   end

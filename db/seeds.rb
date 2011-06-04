@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+@top_news_category = Factory(:source_category)
+Factory(:source, :source_category_id => @top_news_category.id)
+Source.create!(:source_category_id => @top_news_category.id, :name => "Fox News Latest Headlines", :homepage_url => 'http://www.foxnews.com', :rss_url => 'http://feeds.foxnews.com/foxnews/latest?format=xml')
+
+
