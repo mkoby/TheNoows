@@ -16,10 +16,8 @@ ActiveRecord::Schema.define(:version => 20110528211741) do
     t.integer  "source_id"
     t.string   "title"
     t.string   "link"
-    t.string   "description"
     t.datetime "published_at"
-    t.integer  "total_votes"
-    t.datetime "frontpage"
+    t.integer  "total_votes",  :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,9 +39,6 @@ ActiveRecord::Schema.define(:version => 20110528211741) do
     t.string   "homepage_url"
     t.string   "rss_url"
     t.integer  "source_category_id"
-    t.string   "item_link_field"
-    t.string   "item_title_field"
-    t.string   "item_description_field"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

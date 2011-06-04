@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.7'
 gem 'simple-rss', '>= 1.2.3'
 gem 'feedzirra', :git => 'https://github.com/pauldix/feedzirra.git'
+gem 'will_paginate', '~> 3.0.pre2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

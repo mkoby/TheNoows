@@ -6,15 +6,15 @@ class Source < ActiveRecord::Base
     items = Array.new
     feed.entries.each do |i|
       item = NewsItem.new
-      item.link = i.entry_id
+      item.source_id = self.id
+      item.link = i.url
       item.title = i.title
-      item.description = i.summary
       item.published_at = i.published
       begin
         item.save!
         items << item
       rescue Exception => e
-        next if message.match(/item already exists/)
+        next if e.message.match(/item already exists/) or e.message.match(/bad news item/)
       end
     end
     return items
@@ -31,8 +31,11 @@ class Source < ActiveRecord::Base
     end
 
     #Clean feed content removing non-ASCII characters
+    begin
     require 'iconv'
     content = Iconv.conv('ASCII//IGNORE', 'UTF8', content)
+    rescue
+    end
     Feedzirra::Feed.parse(content)
   end
 end

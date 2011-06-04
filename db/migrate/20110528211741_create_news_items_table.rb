@@ -4,10 +4,10 @@ class CreateNewsItemsTable < ActiveRecord::Migration
       t.references :source
       t.string :title
       t.string :link
-      t.string :description
       t.datetime :published_at
-      t.integer :total_votes
-      t.datetime :frontpage, :default => nil
+      t.integer :total_votes, :default => 1
+#      t.string :description
+#      t.datetime :frontpage, :default => nil
 
       t.timestamps
     end

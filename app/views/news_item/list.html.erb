@@ -1,0 +1,26 @@
+<div style="margin: 250px">
+  <% if @items.empty? %>
+    <h2>No News Items to Display *sad panda*</h2>
+  <% else %>
+    <% @items.each do |item| %>
+      <div class="newsitem">
+        <p>
+        <span>
+          <div class="votebutton" style="float: left;">
+            <a href="news_items/<%= item.id %>/vote_up">Vote Up</a>
+          </div>
+          <div class="iteminfo" style="padding-left: 10px;">
+            <div class="itemlink" style="font-size: 32px;">
+              <a href="<%= item.link %>"><%= item.title %></a>
+            </div>
+            <div class="undertitle"> 
+              published at <%= item.published_at %> on <a href="<%= item.source.homepage_url %>"><%= item.source.name %></a>
+            </div>
+          </div>
+        </span>
+        </p>
+        </br>
+      </div>
+    <% end %>
+  <% end %>
+</div>
