@@ -1,4 +1,4 @@
-<div style="margin: 250px">
+<div style="margin: 200px">
   <% if @items.empty? %>
     <h2>No News Items to Display *sad panda*</h2>
   <% else %>
@@ -10,7 +10,7 @@
             <a href="news_items/<%= item.id %>/vote_up">Vote Up</a>
           </div>
           <div class="iteminfo" style="padding-left: 10px;">
-            <div class="itemlink" style="font-size: 32px;">
+            <div class="itemlink" style="font-size: 26px;">
               <a href="<%= item.link %>"><%= item.title %></a>
             </div>
             <div class="undertitle"> 
