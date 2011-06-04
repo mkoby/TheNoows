@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'heroku'
 gem 'rails', '3.0.7'
 gem 'simple-rss', '>= 1.2.3'
 gem 'feedzirra', :git => 'https://github.com/pauldix/feedzirra.git'
