@@ -1,8 +1,15 @@
 TheNoows::Application.routes.draw do
   match '/' => 'news_item#list', :as => 'homepage'
+  match 'news_items/:id/vote_up' => 'news_item#vote_up', :as => 'vote_up_news_item'
 
-  get "news_item/list"
-  get "news_item/vote_up"
+  resources :source_categories do
+    resources :sources do
+      resources :news_items
+    end
+  end
+
+#  get "news_item/list"
+#  get "news_item/vote_up"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
