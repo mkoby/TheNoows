@@ -1,0 +1,19 @@
+<div class="newsitem">
+  <p>
+  <span>
+    <div class="noowsButton" style="float: left; ">
+      <%= link_to item.updated_at == item.created_at ?  'Noows?' : 'Noows', vote_up_news_item_url(item) %>
+    </div>
+    <div class="iteminfo" style="margin:10px; padding-left: 25px;">
+      <div class="itemlink" style="font-size: 20px;">
+        <a href="<%= item.link %>"><%= item.title %></a>
+      </div>
+      <div class="undertitle" style="font-size: 10px">
+        published at <%= item.published_at %> on <a href="<%= item.source.homepage_url %>"><%= item.source.name %></a>
+      </div>
+    </div>
+  </span>
+  </p>
+  </br>
+</div>
+

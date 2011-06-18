@@ -3,25 +3,7 @@
     <h2>No News Items to Display *sad panda*</h2>
   <% else %>
     <% @items.each do |item| %>
-      <div class="newsitem">
-        <p>
-        <span>
-          <div class="noowsButton" style="float: left; ">
-            Noows?
-            <!-- <a href="news_items/<%= item.id %>/vote_up">Vote Up</a> -->
-          </div>
-          <div class="iteminfo" style="margin:10px; padding-left: 25px;">
-            <div class="itemlink" style="font-size: 20px;">
-              <a href="<%= item.link %>"><%= item.title %></a>
-            </div>
-            <div class="undertitle" style="font-size: 10px">
-              published at <%= item.published_at %> on <a href="<%= item.source.homepage_url %>"><%= item.source.name %></a>
-            </div>
-          </div>
-        </span>
-        </p>
-        </br>
-      </div>
+      <%= render :partial => 'item', :locals => { :item => item } %>
     <% end %>
   <% end %>
 </div>
