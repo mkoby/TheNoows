@@ -5,7 +5,8 @@ class CreateNewsItemsTable < ActiveRecord::Migration
       t.string :title
       t.string :link
       t.datetime :published_at
-      t.integer :total_votes, :default => 1
+      t.integer :total_votes, :default => 0
+      t.datetime :last_clicked_at, :default => nil
 #      t.string :description
 #      t.datetime :frontpage, :default => nil
 
@@ -21,3 +22,4 @@ class CreateNewsItemsTable < ActiveRecord::Migration
     drop_table :news_items
   end
 end
+

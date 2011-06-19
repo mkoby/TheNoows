@@ -2,26 +2,22 @@ class NewsItemController < ApplicationController
   layout 'main'
 
   def list
-    @items = NewsItem.paginate( :page => params[:page], :per_page => 50,
-                                :order => 'updated_at DESC',
-                                :group => 'news_items.published_at, news_items.link, news_items.title,
-                                           news_items.total_votes, news_items.created_at,
-                                           news_items.updated_at, news_items.id, news_items.source_id' )
-
-    respond_to do |format|
-      format.html
-    end
+    @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
+                                :order => 'last_clicked_at DESC' )
   end
 
   def vote_up
     @item = NewsItem.find(params[:id])
-    @item.updated_at = Time.now
+    @item.last_clicked_at = Time.now
+    @item.total_votes += 1
     if @item.save
       redirect_to homepage_path
     end
   end
 
   def new
+    @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
+                                :order => 'published_at DESC' )
   end
 
 end

@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(:version => 20110528211741) do
     t.string   "title"
     t.string   "link"
     t.datetime "published_at"
-    t.integer  "total_votes",  :default => 1
+    t.integer  "total_votes",     :default => 0
+    t.datetime "last_clicked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
