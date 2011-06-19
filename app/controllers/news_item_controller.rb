@@ -3,7 +3,7 @@ class NewsItemController < ApplicationController
 
   def list
     @items = NewsItem.paginate( :page => params[:page], :per_page => 50,
-                                :order => 'published_at DESC',
+                                :order => 'updated_at DESC',
                                 :group => 'news_items.published_at, news_items.link, news_items.title,
                                            news_items.total_votes, news_items.created_at,
                                            news_items.updated_at, news_items.id, news_items.source_id' )
@@ -19,6 +19,9 @@ class NewsItemController < ApplicationController
     if @item.save
       redirect_to homepage_path
     end
+  end
+
+  def new
   end
 
 end

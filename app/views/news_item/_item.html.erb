@@ -1,8 +1,13 @@
 <div class="newsitem">
   <p>
   <span>
-    <div class="noowsButton" style="float: left; ">
-      <%= link_to item.updated_at == item.created_at ?  'Noows?' : 'Noows', vote_up_news_item_url(item) %>
+      <% if item.updated_at == item.created_at %>
+        <div class="noowsButton" style="float: left; ">
+        <%= link_to 'Noows?', vote_up_news_item_url(item) %>
+      <% else %>
+        <div class="noowsedButton" style="float: left; ">
+          Noows
+      <% end %>
     </div>
     <div class="iteminfo" style="margin:10px; padding-left: 25px;">
       <div class="itemlink" style="font-size: 20px;">
