@@ -11,7 +11,8 @@ class NewsItemController < ApplicationController
     @item.last_clicked_at = Time.now
     @item.total_votes += 1
     if @item.save
-      redirect_to homepage_path
+      flash[:notice] = "Item promoted"
+      redirect_to request.referer
     end
   end
 

@@ -1,6 +1,6 @@
 TheNoows::Application.routes.draw do
   match '/' => 'news_item#list', :as => 'homepage'
-  match '/new/' => 'news_items#new', :as => 'new'
+  match '/new/' => 'news_item#new', :as => 'new'
   match 'news_items/:id/vote_up' => 'news_item#vote_up', :as => 'vote_up_news_item'
 
   resources :source_categories do
