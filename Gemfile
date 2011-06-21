@@ -5,6 +5,8 @@ gem 'rails', '3.0.7'
 gem 'simple-rss', '>= 1.2.3'
 gem 'feedzirra', :git => 'https://github.com/pauldix/feedzirra.git'
 gem 'will_paginate', '~> 3.0.pre2'
+gem 'authlogic', '3.0.3'
+gem 'facebooker2', '0.0.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
