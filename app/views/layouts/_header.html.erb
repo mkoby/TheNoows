@@ -1,17 +1,18 @@
 <div class="header" style="margin: 25px 25px 0px 25px; padding-bottom: 25px;">
+  <div>
     <a href="/" style="font-size: 72px; text-decoration: underline; color: black; text-decoration: none;">The Noows</a>
-    <% if current_user %>
-      <%= link_to 'Logout', logout_path %>
-    <% else %>
-      <%= link_to image_tag("fb-login.png", :alt => 'Login with Facebook'), new_oauth_path %>
-    <% end %>
-    <div class="taglineLinks" style="margin: 0px 50px 0px 165px;">
+      <div class="login" style="float: right; padding-top: 50px;">
+      <% if current_user %>
+        <%= link_to 'Logout', logout_path %>
+      <% else %>
+        <%= link_to image_tag("fb-login.png", :alt => 'Login with Facebook'), new_oauth_path %>
+      <% end %>
+      </div>
+    <div class="taglineLinks" style="margin: 0px 50px 0px 162px;">
       Just the news, nothing else
       <a href ="/new">New</a>
-      <a href ="/new">Top News</a>
-      <a href ="/new">U.S. News</a>
-      <a href ="/new">World News</a>
     </div>
+  </div>
   <div class="underTitle" style="margin: 0px 150px">
     <!-- <img src="images/fb-login.png" style="padding: 0px 25px 0px 50px;" /> -->
     <!-- <img src="images/fb-login.png" style="float: right; vertical-align: bottom; padding: 0px 100px 0px 25px;" /> -->

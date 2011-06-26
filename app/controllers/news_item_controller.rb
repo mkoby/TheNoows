@@ -7,19 +7,17 @@ class NewsItemController < ApplicationController
                                 :order => 'last_clicked_at DESC' )
   end
 
-  def vote_up
-    @item = NewsItem.find(params[:id])
-    if @item.vote_up(@user)
-      flash[:notice] = "Item promoted"
-      redirect_to request.referer
-    end
-  end
-
   def new
     @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
                                 :order => 'published_at DESC' )
   end
 
+  def vote_up
+    @item = NewsItem.find(params[:id])
+    if @item.vote_up(@user)
+      redirect_to request.referer
+    end
+  end
 
   private
 
