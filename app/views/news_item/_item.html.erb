@@ -1,4 +1,4 @@
-<div class="newsitem">
+<div id="newsitem">
   <p>
   <span>
       <% if item.updated_at == item.created_at %>
@@ -9,11 +9,11 @@
           Noows
       <% end %>
     </div>
-    <div class="iteminfo" style="margin:10px; padding-left: 95px;">
-      <div class="itemlink" style="font-size: 20px;">
+    <div id="iteminfo" style="margin:10px; padding-left: 95px;">
+      <div id="itemlink" style="font-size: 20px;">
         <a href="<%= item.link %>"><%= item.title %></a>
       </div>
-      <div class="underItemTitle" style="font-size: 10px">
+      <div id="underItemTitle" style="font-size: 10px">
         published at <%= item.published_at %> on <a href="<%= item.source.homepage_url %>"><%= item.source.name %></a>
       </div>
     </div>

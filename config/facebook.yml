@@ -1,4 +1,6 @@
 development: &defaults
+  app_id: 120087874746933
+  app_secret: 256a7f560bc0753258ccacdb88e7d23a
   canvas_url:
   permissions: email
 

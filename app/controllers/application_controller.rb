@@ -6,10 +6,14 @@ class ApplicationController < ActionController::Base
   protected
 
     def facebook_client
+      client_id = Rails.env.production? ? ENV['FACEBOOK_APP_ID'] : FBGraph.config['app_id']
+      secret_id = Rails.env.production? ? ENV['FACEBOOK_APP_SECRET'] : FBGraph.config['app_secret']
+      token = session['access_token']
+
       @facebook_client ||= FBGraph::Client.new(
-        :client_id => ENV['FACEBOOK_APP_ID'], #FBGraph.config['client_id'],
-        :secret_id => ENV['FACEBOOK_APP_SECRET'], #FBGraph.config['client_secret'],
-        :token => session['access_token'])
+        :client_id => client_id,
+        :secret_id => secret_id,
+        :token => token)
     end
 
   private
