@@ -2,6 +2,14 @@ TheNoows::Application.routes.draw do
   match '/' => 'news_item#list', :as => 'homepage'
   match '/new/' => 'news_item#new', :as => 'new'
   match 'news_items/:id/vote_up' => 'news_item#vote_up', :as => 'vote_up_news_item'
+  match '/logout' => 'user_session#destroy', :as => 'logout'
+
+  resource :oauth, :only => [:new], :controller => 'oauth' do
+    get 'callback', :on => :collection
+  end
+
+  #match 'oauth/start' => 'oauth#start', :as => 'oauth_authorize'
+  #match 'oauth/callback' => 'oauth#callback', :as => 'oauth_callback'
 
   resources :source_categories do
     resources :sources do

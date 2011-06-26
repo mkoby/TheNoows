@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110528211741) do
+ActiveRecord::Schema.define(:version => 20110625223229) do
 
   create_table "news_items", :force => true do |t|
     t.integer  "source_id"
@@ -45,5 +45,31 @@ ActiveRecord::Schema.define(:version => 20110528211741) do
   end
 
   add_index "sources", ["id"], :name => "index_sources_on_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                                             :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "persistence_token",                                 :null => false
+    t.string   "single_access_token",                               :null => false
+    t.string   "perishable_token",                                  :null => false
+    t.integer  "login_count",                        :default => 0, :null => false
+    t.integer  "failed_login_count",                 :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.string   "time_zone"
+    t.integer  "facebook_id",           :limit => 8
+    t.string   "facebook_access_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id", :unique => true
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
+  add_index "users", ["single_access_token"], :name => "index_users_on_single_access_token"
 
 end

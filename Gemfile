@@ -6,7 +6,7 @@ gem 'simple-rss', '>= 1.2.3'
 gem 'feedzirra', :git => 'https://github.com/pauldix/feedzirra.git'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'authlogic', '3.0.3'
-gem 'fbgraph', '1.8.0'
+gem 'fbgraph', :git => 'git://github.com/pwnall/fbgraph.git'
 gem 'oauth2', '0.4.1'
 
 # Bundle edge Rails instead:

@@ -1,0 +1,10 @@
+development: &defaults
+  canvas_url:
+  permissions: email
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+
