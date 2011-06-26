@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
   end
 
+  has_many :votes
+  has_many :news_items, :through => :votes
+
   def self.new_from_facebook(access_token, fb_data)
     self.new(
       :email => fb_data.email,

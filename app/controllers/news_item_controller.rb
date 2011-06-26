@@ -1,4 +1,5 @@
 class NewsItemController < ApplicationController
+  before_filter :get_user, :only => :vote_up
   layout 'main'
 
   def list
@@ -8,9 +9,7 @@ class NewsItemController < ApplicationController
 
   def vote_up
     @item = NewsItem.find(params[:id])
-    @item.last_clicked_at = Time.now
-    @item.total_votes += 1
-    if @item.save
+    if @item.vote_up(@user)
       flash[:notice] = "Item promoted"
       redirect_to request.referer
     end
@@ -20,6 +19,18 @@ class NewsItemController < ApplicationController
     @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
                                 :order => 'published_at DESC' )
   end
+
+
+  private
+
+    def get_user
+      @user = current_user
+
+      unless @user
+        flash[:alert] = "You must be logged in to vote"
+        redirect_to request.referrer
+      end
+    end
 
 end
 

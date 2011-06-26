@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110625223229) do
+ActiveRecord::Schema.define(:version => 20110626151331) do
 
   create_table "news_items", :force => true do |t|
     t.integer  "source_id"
@@ -71,5 +71,15 @@ ActiveRecord::Schema.define(:version => 20110625223229) do
   add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id", :unique => true
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["single_access_token"], :name => "index_users_on_single_access_token"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "news_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["news_item_id"], :name => "index_votes_on_news_item_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end
