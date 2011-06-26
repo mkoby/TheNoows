@@ -2,8 +2,10 @@
   <%= render :partial => 'layouts/html_header' %>
   <body>
     <%= render :partial => 'layouts/header' %>
-    <%= content_tag('p', flash[:notice]) if flash[:notice] %>
-    <%= content_tag('p', flash[:alert]) if flash[:alert] %>
+    <div id="flash" style="text-align: center;">
+      <%= content_tag('p', flash[:notice]) if flash[:notice] %>
+      <%= content_tag('p', flash[:alert]) if flash[:alert] %>
+    </div>
     <%= yield %>
   </body>
 </html>
