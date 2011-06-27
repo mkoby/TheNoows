@@ -1,12 +1,12 @@
 <div id="newsitem">
   <p>
   <span>
-      <% if item.updated_at == item.created_at %>
-        <div class="noowsButton" style="float: left; ">
-        <%= link_to 'Noows?', vote_up_news_item_url(item) %>
-      <% else %>
+      <% if current_user && current_user.news_items.include(item) %>
         <div class="noowsedButton" style="float: left; ">
           Noows
+      <% else %>
+        <div class="noowsButton" style="float: left; ">
+        <%= link_to 'Noows?', vote_up_news_item_url(item) %>
       <% end %>
     </div>
     <div id="iteminfo" style="margin:10px; padding-left: 95px;">
