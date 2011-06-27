@@ -1,7 +1,7 @@
 <div id="newsitem">
   <p>
   <span>
-      <% if current_user && current_user.news_items.include(item) %>
+      <% if current_user && current_user.news_items.include?(item) %>
         <div class="noowsedButton" style="float: left; ">
           Noows
       <% else %>
