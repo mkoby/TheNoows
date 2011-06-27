@@ -4,12 +4,12 @@ class NewsItemController < ApplicationController
 
   def list
     @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
-                                :order => 'last_clicked_at DESC' )
+                                :order => 'last_clicked_at' )
   end
 
   def new
     @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
-                                :order => 'published_at DESC' )
+                                :order => 'published_at' )
   end
 
   def vote_up
