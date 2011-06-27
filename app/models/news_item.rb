@@ -6,7 +6,7 @@ class NewsItem < ActiveRecord::Base
   has_many :votes
   has_many :users, :through => :votes
   validates_presence_of :title, :link, :message => "No title or link, bad news item"
-  validates_uniqueness_of :title, :scope => [:link, :published_at], :message => "News item already exists"
+  validates_uniqueness_of :title, :scope => [:source, :link], :message => "News item already exists"
 
   def vote_up(user)
     self.last_clicked_at = Time.now
