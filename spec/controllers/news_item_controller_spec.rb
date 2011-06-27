@@ -11,21 +11,6 @@ describe NewsItemController do
     @items = @source.get_new_items
   end
 
-  describe "GET 'list'" do
-    before(:each) do
-      get 'list'
-    end
-
-    it "should be successful" do
-      response.should be_success
-    end
-
-    it "should return a list of news_items" do
-      items = assigns(:items)
-      items.should_not be_nil
-    end
-  end
-
   describe "GET 'vote_up'" do
     context "with user" do
       before(:each) do
