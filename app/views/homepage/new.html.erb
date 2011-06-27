@@ -1,24 +1,13 @@
-<div id="newsitem">
-  <p>
-  <span>
-      <% if current_user && current_user == item.user %>
-        <div class="noowsedButton" style="float: left; ">
-          Noows
-      <% else %>
-        <div class="noowsButton" style="float: left; ">
-        <%= link_to 'Noows?', vote_up_news_item_url(item.news_item) %>
-      <% end %>
-    </div>
-    <div id="iteminfo" style="margin:10px; padding-left: 95px;">
-      <div id="itemlink" style="font-size: 20px;">
-        <a href="<%= item.news_item.link %>"><%= item.news_item.title %></a>
-      </div>
-      <div id="underItemTitle" style="font-size: 10px">
-        published at <%= item.news_item.published_at %> on <a href="<%= item.news_item.source.homepage_url %>"><%= item.news_item.source.name %></a>
-      </div>
-    </div>
-  </span>
-  </p>
-  </br>
+<div id="itemList" style="margin-top: 25px; margin-left: 320px; margin-right: 320px;">
+  <% if @items.empty? %>
+    <h2>No News Items to Display *sad panda*</h2>
+  <% else %>
+    <% @items.each do |item| %>
+      <%= render :partial => 'item', :locals => { :item => item } %>
+    <% end %>
+    <div id="pageList" style="text-align: right; padding-right: 150px;">
+      <%= will_paginate @items %>
+    </div
+  <% end %>
 </div>
 
