@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'heroku'
+gem 'heroku', '2.3.3'
 gem 'rails', '3.0.7'
 gem 'simple-rss', '>= 1.2.3'
 gem 'feedzirra', :git => 'https://github.com/pauldix/feedzirra.git'
@@ -8,6 +8,8 @@ gem 'will_paginate', '~> 3.0.pre2'
 gem 'authlogic', '3.0.3'
 gem 'fbgraph', :git => 'git://github.com/pwnall/fbgraph.git'
 gem 'oauth2', '0.4.1'
+gem 'delayed_job', '2.1.4'
+gem 'hirefire', :git => 'https://github.com/meskyanichi/hirefire.git', :branch => 'develop' 
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
