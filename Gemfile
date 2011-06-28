@@ -10,6 +10,7 @@ gem 'fbgraph', :git => 'git://github.com/pwnall/fbgraph.git'
 gem 'oauth2', '0.4.1'
 gem 'delayed_job', '2.1.4'
 gem 'hirefire', :git => 'https://github.com/meskyanichi/hirefire.git', :branch => 'develop' 
+gem 'hirefireapp'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
