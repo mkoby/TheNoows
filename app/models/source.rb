@@ -1,6 +1,31 @@
 class Source < ActiveRecord::Base
   belongs_to :source_category
 
+  def self.get_new_items_for_all_sources
+    logger.info "Getting sources"
+    begin
+      sources = Source.all
+    rescue Exception => e
+      logger.error "ERROR GRABBING SOURCES"
+      logger.error "MESSAGE: #{e.message}"
+      logger.error "STACKTRACE:"
+      logger.error e.backtrace
+    end
+
+    sources.each do |source|
+      logger.info "Getting Items for #{source.name}"
+      begin
+        items = source.get_new_items
+      rescue Exception => e
+        logger.error "ERROR GRABBING NEWS ITEMS"
+        logger.error "SOURCE: #{source.name}"
+        logger.error "ERROR MESSAGE: #{e.message}"
+        logger.error "STACKTRACE:"
+        logger.error e.backtrace
+      end
+    end
+  end
+
   def get_new_items
     feed = get_feed_content
     items = Array.new
