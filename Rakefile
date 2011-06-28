@@ -5,13 +5,6 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake/dsl_definition'
 require 'rake'
 
-begin
-  require 'delayed/tasks'
-rescue LoadError
-  STDERR.puts "Run `bundle:install` to install delayed_job"
-end
-
-
 module ::TheNoows
   class Application
     include Rake::DSL
@@ -23,3 +16,4 @@ module ::RakeFileUtils
 end
 
 TheNoows::Application.load_tasks
+
