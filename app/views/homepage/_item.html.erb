@@ -1,7 +1,6 @@
 <div id="newsitem">
   <p>
   <span>
-	  <% news_item = item.respond_to?('news_item') ? item.news_item : item %>
       <% if current_user && current_user.news_items.include?(news_item) %>
         <div class="noowsedButton">
           Noows
@@ -11,11 +10,9 @@
       <% end %>
     </div>
     <div id="iteminfo">
-      <div class="itemlink">
-        <a href="<%= news_item.link %>"><%= news_item.title %></a>
-      </div>
+		<%= link_to news_item.title, news_item.link, :class => 'itemlink' %>
       <div class="underItemTitle">
-        published at <%= news_item.published_at %> on <a href="<%= news_item.source.homepage_url %>"><%= news_item.source.name %></a>
+        published at <%= news_item.published_at %> on <%= link_to news_item.source.name, news_item.source.homepage_url %>
       </div>
     </div>
   </span>

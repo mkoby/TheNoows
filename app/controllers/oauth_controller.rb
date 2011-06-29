@@ -26,14 +26,14 @@ class OauthController < ApplicationController
         end
 
       end
-      redirect_to homepage_path
+      redirect_to request.referrer
     rescue OAuth2::ErrorWithResponse => auth_err
       logger.debug auth_err.response.body
     rescue Exception => e
       logger.debug e.message
       logger.debug e.backtrace
       flash[:alert] = "Unable to log you in via Facebook"
-      redirect_to homepage_path
+      redirect_to request.referrer
     end
   end
 

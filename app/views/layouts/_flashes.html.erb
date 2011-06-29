@@ -1,0 +1,6 @@
+<% if flash.count > 0 %>
+	<div id="flashes">
+		<%= content_tag('p', flash[:notice], :class => 'notice') if flash[:notice] %>
+		<%= content_tag('p', flash[:alert], :class => 'alert') if flash[:alert] %>
+	</div>
+<% end %>

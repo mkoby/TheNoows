@@ -1,0 +1,13 @@
+<div id="itemList">
+  <% if @items.empty? %>
+    <h2>No News Items to Display *sad panda*</h2>
+  <% else %>
+    <% @items.each do |item| %>
+      <%= render :partial => 'item', :locals => { :news_item => item.respond_to?('news_item') ? item.news_item : item} %>
+    <% end %>
+    <div id="pageList">
+      <%= will_paginate @items %>
+    </div
+  <% end %>
+</div>
+
