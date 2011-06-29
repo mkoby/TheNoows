@@ -1,0 +1,20 @@
+<div id="menu">
+	<div style="padding-right: 10px">
+		<ul>
+			<li><%= link_to 'Home', homepage_path %></li>
+			<li><%= link_to 'New', new_path %></li>
+		</ul>
+		<ul>
+			<!-- Categories will go here when there is more than 1 -->
+		</ul>
+		<ul>
+			<li>
+				<% if current_user %>
+		        	<%= link_to 'Logout', logout_path %>
+		      	<% else %>
+		        	<%= link_to image_tag("fb-login.png", :alt => 'Login with Facebook'), new_oauth_path %>
+		      	<% end %>
+			</li>
+		</ul>
+	</div>
+</div>

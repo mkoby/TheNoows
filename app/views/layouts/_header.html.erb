@@ -1,16 +1,8 @@
-<div id="header" style="margin: 25px 25px 0px 25px; padding-bottom: 25px;">
+<div id="header">
   <div>
-    <a href="/" style="font-size: 72px; text-decoration: underline; color: black; text-decoration: none;">The Noows</a>
-      <div class="login" style="float: right; padding-top: 50px;">
-      <% if current_user %>
-        <%= link_to 'Logout', logout_path %>
-      <% else %>
-        <%= link_to image_tag("fb-login.png", :alt => 'Login with Facebook'), new_oauth_path %>
-      <% end %>
-      </div>
-    <div id="taglineLinks" style="margin: 0px 50px 0px 162px;">
+    <a href="/">The Noows</a>
+    <div class="tagline">
       Just the news, nothing else
-      <a href ="/new">New</a>
     </div>
   </div>
 </div>

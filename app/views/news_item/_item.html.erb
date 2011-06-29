@@ -2,10 +2,10 @@
   <p>
   <span>
       <% if current_user && current_user.news_items.include?(item) %>
-        <div class="noowsedButton" style="float: left; ">
+        <div class="noowsedButton">
           Noows
       <% else %>
-        <div class="noowsButton" style="float: left; ">
+        <div class="noowsButton">
         <%= link_to 'Noows?', vote_up_news_item_url(item) %>
       <% end %>
     </div>

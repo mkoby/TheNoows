@@ -2,18 +2,18 @@
   <p>
   <span>
       <% if current_user && current_user.news_items.include?(item) %>
-        <div class="noowsedButton" style="float: left; ">
+        <div class="noowsedButton">
           Noows
       <% else %>
-        <div class="noowsButton" style="float: left; ">
+        <div class="noowsButton">
         <%= link_to 'Noows?', vote_up_news_item_url(item) %>
       <% end %>
     </div>
-    <div id="iteminfo" style="margin:10px; padding-left: 95px;">
-      <div id="itemlink" style="font-size: 20px;">
+    <div id="iteminfo">
+      <div class="itemlink">
         <a href="<%= item.link %>"><%= item.title %></a>
       </div>
-      <div id="underItemTitle" style="font-size: 10px">
+      <div class="underItemTitle">
         published at <%= item.published_at %> on <a href="<%= item.source.homepage_url %>"><%= item.source.name %></a>
       </div>
     </div>
