@@ -1,20 +1,21 @@
 <div id="newsitem">
   <p>
   <span>
-      <% if current_user && current_user == item.user %>
+	  <% news_item = item.respond_to?('news_item') ? item.news_item : item %>
+      <% if current_user && current_user.news_items.include?(news_item) %>
         <div class="noowsedButton">
           Noows
       <% else %>
         <div class="noowsButton">
-        <%= link_to 'Noows?', vote_up_news_item_url(item) %>
+        <%= link_to 'Noows?', vote_up_news_item_url(news_item) %>
       <% end %>
     </div>
     <div id="iteminfo">
       <div class="itemlink">
-        <a href="<%= item.link %>"><%= item.title %></a>
+        <a href="<%= news_item.link %>"><%= news_item.title %></a>
       </div>
       <div class="underItemTitle">
-        published at <%= item.published_at %> on <a href="<%= item.source.homepage_url %>"><%= item.source.name %></a>
+        published at <%= news_item.published_at %> on <a href="<%= news_item.source.homepage_url %>"><%= news_item.source.name %></a>
       </div>
     </div>
   </span>
