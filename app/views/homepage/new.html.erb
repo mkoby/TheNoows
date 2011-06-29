@@ -1,11 +1,11 @@
-<div id="itemList" style="margin-top: 25px; margin-left: 320px; margin-right: 320px;">
+<div id="itemList">
   <% if @items.empty? %>
-    <h2>No News Items to Display *sad panda*</h2>
+    <h2>No New News Items to Display *sad panda*</h2>
   <% else %>
     <% @items.each do |item| %>
-      <%= render :partial => 'new_item', :locals => { :item => item } %>
+      <%= render :partial => 'item', :locals => { :item => item } %>
     <% end %>
-    <div id="pageList" style="text-align: right; padding-right: 150px;">
+    <div class="pageList">
       <%= will_paginate @items %>
     </div
   <% end %>
