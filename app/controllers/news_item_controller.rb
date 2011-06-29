@@ -2,16 +2,6 @@ class NewsItemController < ApplicationController
   before_filter :get_user, :only => :vote_up
   layout 'main'
 
-  def list
-    @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
-                                :order => 'last_clicked_at' )
-  end
-
-  def new
-    @items = NewsItem.paginate( :page => params[:page], :per_page => 25,
-                                :order => 'published_at' )
-  end
-
   def vote_up
     @item = NewsItem.find(params[:id])
     if @item.vote_up(@user)
