@@ -1,8 +1,18 @@
 <div id="menu">
 	<div style="padding-right: 10px">
 		<ul>
-			<li><%= link_to_unless_current 'Home', homepage_path %></li>
-			<li><%= link_to_unless_current 'New', new_path %></li>
+			<li>
+				<%= link_to_unless_current 'Home', homepage_path do |output|
+						content_tag 'span', output, :class => 'current'
+					end					
+				%>
+			</li>
+			<li>
+				<%= link_to_unless_current 'New', new_path  do |output|
+						content_tag 'span', output, :class => 'current'
+					end
+				%>
+			</li>
 		</ul>
 		<ul>
 			<!-- Categories will go here when there is more than 1 -->
