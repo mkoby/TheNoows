@@ -30,7 +30,7 @@ class UserSessionController < ApplicationController
   def destroy
     current_user_session.destroy
     respond_to do |format|
-      format.html { redirect_to homepage_path }
+      format.html { redirect_to request.referrer }
     end
   end
 end
