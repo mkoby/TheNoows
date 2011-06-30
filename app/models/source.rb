@@ -11,8 +11,10 @@ class Source < ActiveRecord::Base
       item.title = i.title
       item.published_at = i.published
       begin
-        item.save!
-        items << item
+        if NewsItem.is_valid_news_item?(item)
+          item.save!
+          items << item
+        end
       rescue Exception => e
         next if e.message.match(/item already exists/) or e.message.match(/bad news item/)
       end

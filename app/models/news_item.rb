@@ -18,5 +18,11 @@ class NewsItem < ActiveRecord::Base
     end
     return false
   end
+
+  def self.is_valid_news_item?(item)
+    return false if item.title.match /^Sponsored By/
+    return true
+  end
+
 end
 
