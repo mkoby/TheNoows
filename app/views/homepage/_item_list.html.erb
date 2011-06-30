@@ -5,7 +5,7 @@
     <% @items.each do |item| %>
       <%= render :partial => 'item', :locals => { :news_item => item.respond_to?('news_item') ? item.news_item : item} %>
     <% end %>
-    <div id="pageList">
+    <div class="pageList">
       <%= will_paginate @items %>
     </div
   <% end %>

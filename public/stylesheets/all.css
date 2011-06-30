@@ -1,23 +1,23 @@
 #header {
-	margin: 25px 25px 25px 25px; 
+	margin: 25px 25px 25px 25px;
 }.tagline {
 	margin-left: 162px;
 }
 #header a {
-	font-size: 72px; 
-	text-decoration: underline; 
-	color: black; 
+	font-size: 72px;
+	text-decoration: underline;
+	color: black;
 	text-decoration: none;
 }
 
 #menu {
-	float: left; 
-	margin: 0px 10px 0px 200px; 
-	border-right: 1px solid black; 
-	border-bottom: 1px solid black; 
+	float: left;
+	margin: 0px 10px 0px 200px;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 	text-align: right;
 }.current {
-	text-decoration: underline;	
+	text-decoration: underline;
 }
 #menu li {
 	list-style-type: none;
@@ -37,7 +37,7 @@
 }
 
 #newsitem {
-	
+
 }.noowsButton {
 	float: left;
 	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
@@ -95,10 +95,10 @@
 	top:1px;
 }.noowsButton a {
 text-decoration:none;
-} 
+}
 
 #iteminfo {
-	margin:10px; 
+	margin:10px;
 	padding-left: 95px;
 }.itemlink {
 	font-size: 20px;
@@ -112,5 +112,10 @@ text-decoration:none;
 	color: red;
 }.notice {
 	color: green;
+}
+
+#footer {
+    padding-bottom: 5px;
+    font-size: 10px
 }
 
