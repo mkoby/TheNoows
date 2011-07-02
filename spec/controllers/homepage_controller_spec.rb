@@ -14,6 +14,7 @@ describe HomepageController do
   describe "GET 'list'" do
     before(:each) do
       get 'home'
+      @items = assigns(:items)
     end
 
     it "should be successful" do
@@ -21,8 +22,8 @@ describe HomepageController do
     end
 
     it "should return a list of news_items" do
-      items = assigns(:items)
-      items.should_not be_nil
+      @items.should_not be_nil
     end
   end
 end
+

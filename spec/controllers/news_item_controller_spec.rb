@@ -16,20 +16,13 @@ describe NewsItemController do
       before(:each) do
         UserSession.create(@user, true)
         get 'vote_up', :id => @items.first.id
-        @clicked_item = assigns(:item)
       end
 
-      it "should change last_clicked_at" do
-        @clicked_item.last_clicked_at.should be_within(10.seconds).of(Time.now)
-      end
+      subject { assigns(:item) }
+      its(:last_clicked_at) {should be_within(10.seconds).of(Time.now) }
+      its(:total_votes) { should == 1 }
+      its('votes.count') { should == 1 }
 
-      it "should have a vote_count of 1" do
-        @clicked_item.total_votes.should == 1
-      end
-
-      it "should raise vote count" do
-        @clicked_item.votes.count == 1
-      end
     end
 
     context "with no user" do

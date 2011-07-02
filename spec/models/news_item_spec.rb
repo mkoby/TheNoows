@@ -11,19 +11,25 @@ describe NewsItem do
     expect { NewsItem.create!(:source_id => @source.id, :title => @item.title, :link => @item.link, :published_at => @item.published_at) }.to raise_error
   end
 
-  context "#vote_up" do
+  describe "#vote_up" do
     before(:each) do
       @item.vote_up(Factory(:user))
     end
 
-    it "should increase vote_count" do
-      @item.total_votes.should == 1
+    context "news_item" do
+      subject { @item }
+      its(:total_votes) { should == 1 }
     end
 
-    it "should create vote record" do
-      @item.votes.count.should == 1
-      @item.votes.first.user == User.first
-      @item.votes.first.news_item == @item
+    context "news_item.votes" do
+      subject { @item.votes }
+      its(:count) { should == 1 }
+    end
+
+    context "news_item.votes.first" do
+      subject { @item.votes.first }
+      its(:user) { should == User.first }
+      its(:news_item) { should == @item }
     end
   end
 
