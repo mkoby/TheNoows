@@ -10,9 +10,13 @@
 	text-decoration: none;
 }
 
+#content {
+	margin: 0px 200px 10px 200px;
+}
+
 #menu {
 	float: left;
-	margin: 0px 10px 0px 200px;
+	margin-right:10px;
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 	text-align: right;
@@ -31,7 +35,7 @@
 }
 
 #itemList {
-	margin: 25px 320px 10px 360px;
+	padding-left: 160px;
 }.pageList {
 	text-align: right; padding-right: 150px;
 }
@@ -97,7 +101,7 @@
 text-decoration:none;
 }
 
-#iteminfo {
+.iteminfo {
 	margin:10px;
 	padding-left: 95px;
 }.itemlink {

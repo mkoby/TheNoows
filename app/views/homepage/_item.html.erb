@@ -1,4 +1,4 @@
-<div id="newsitem">
+<div class="newsitem">
   <p>
   <span>
       <% if current_user && news_item.users.include?(current_user) %>
@@ -9,7 +9,7 @@
         <%= link_to 'Noows?', vote_up_news_item_url(news_item) %>
       <% end %>
     </div>
-    <div id="iteminfo">
+    <div class="iteminfo">
 		<%= link_to news_item.title, news_item.link, :class => 'itemlink' %>
       <div class="underItemTitle">
         published at <%= news_item.published_at %> on <%= link_to news_item.source.name, news_item.source.homepage_url %>
