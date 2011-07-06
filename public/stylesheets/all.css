@@ -37,7 +37,7 @@
 #itemList {
 	padding-left: 160px;
 }.pageList {
-	text-align: right; padding-right: 150px;
+	text-align: right;
 }
 
 #newsitem {
@@ -111,7 +111,7 @@ text-decoration:none;
 }
 
 #flashes {
-	margin-left: 495px;
+	padding-left: 350px;
 }.alert {
 	color: red;
 }.notice {
