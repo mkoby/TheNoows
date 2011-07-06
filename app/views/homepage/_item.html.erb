@@ -10,7 +10,7 @@
       <% end %>
     </div>
     <div class="iteminfo">
-		<%= link_to news_item.title, news_item.link, :class => 'itemlink' %>
+		  <%= link_to news_item.title, news_item.link, :class => 'itemlink' %>
       <div class="underItemTitle">
         published at <%= news_item.published_at %> on <%= link_to news_item.source.name, news_item.source.homepage_url %>
       </div>
