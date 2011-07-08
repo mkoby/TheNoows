@@ -1,14 +1,11 @@
 <div class="newsitem">
   <p>
   <span>
-      <% if current_user && news_item.users.include?(current_user) %>
-        <div class="noowsedButton">
-          Noows
-      <% else %>
-        <div class="noowsButton">
-        <%= link_to 'Noows?', vote_up_news_item_url(news_item) %>
-      <% end %>
-    </div>
+	  <%= 
+		  content_tag 'div', 
+	  	  link_to_unless(user_has_item, 'Noows?', vote_up_news_item_url(news_item)) { 'Noows' }, 
+		  { :class => user_has_item ? 'noowsedButton' : 'noowsButton' }
+	  %>
     <div class="iteminfo">
 		  <%= link_to news_item.title, news_item.link, :class => 'itemlink' %>
       <div class="underItemTitle">
