@@ -3,14 +3,14 @@
     <h2>No News Items to Display *sad panda*</h2>
   <% else %>
     <% @items.each do |item| %>
-      <% 
-		 news_item = item.respond_to?('news_item') ? item.news_item : item 
+      <%
+		 news_item = item.respond_to?('news_item') ? item.news_item : item
 		 user_has_item = current_user && news_item.users.include?(current_user)
 	  %>
       <%= render :partial => 'item', :locals => { :news_item => news_item, :user_has_item => user_has_item } %>
     <% end %>
     <div class="pageList">
-      <%= will_paginate @items %>
+      <%= will_paginate @items, :page_links => false %>
     </div
   <% end %>
 </div>
