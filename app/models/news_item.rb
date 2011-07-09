@@ -1,6 +1,6 @@
 class NewsItem < ActiveRecord::Base
   cattr_reader :per_page
-  @@per_page = 25
+  @@per_page = 15
 
   belongs_to :source
   has_many :votes
