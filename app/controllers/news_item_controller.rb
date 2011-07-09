@@ -4,8 +4,20 @@ class NewsItemController < ApplicationController
 
   def vote_up
     @item = NewsItem.find(params[:id])
-    if @item.vote_up(@user)
-      redirect_to request.referer
+    returnObj = { :success => false }
+
+    unless @item.users.include?(@user)
+      if @item.vote_up(@user)
+        returnObj = { :success => true }
+      end
+    end
+
+    respond_to do |format|
+        format.html { redirect_to request.referer }
+        format.js {
+          response.content_type = Mime::JSON
+          render :text => returnObj.to_json
+        }
     end
   end
 
@@ -15,7 +27,11 @@ class NewsItemController < ApplicationController
       @user = current_user
 
       unless @user
-        flash[:alert] = "You must be logged in to vote"
+        respond_to do |format|
+          format.all {
+            flash[:alert] = "You must be logged in to vote"
+          }
+        end
         redirect_to request.referrer
       end
     end

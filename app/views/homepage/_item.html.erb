@@ -1,10 +1,12 @@
 <div class="newsitem">
   <p>
   <span>
-	  <%= 
-		  content_tag 'div', 
-	  	  link_to_unless(user_has_item, 'Noows?', vote_up_news_item_url(news_item)) { 'Noows' }, 
-		  { :class => user_has_item ? 'noowsedButton' : 'noowsButton' }
+	  <%=
+		  content_tag 'div', user_has_item ? 'Noows' : 'Noows?',
+		  { :id => news_item.id,
+		    :class => user_has_item ? 'noowsedButton' : 'noowsButton',
+		    :onclick => user_has_item ? '' : "vote(#{news_item.id}, #{current_user ? 'true' : 'false'})"
+		  }
 	  %>
     <div class="iteminfo">
 		  <%= link_to news_item.title, news_item.link, :class => 'itemlink' %>

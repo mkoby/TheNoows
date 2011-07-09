@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <%= render :partial => 'layouts/html_header' %>
   <body>
@@ -6,8 +7,8 @@
 	    <%= render :partial => 'layouts/menu'%>
 	    <%= render :partial => 'layouts/flashes'%>
       <%= yield %>
-      <%= render :partial => 'layouts/footer'%>
     </div>
+    <%= render :partial => 'layouts/footer'%>
   </body>
 </html>
 
