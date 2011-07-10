@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 function vote(a,b) {
     if(b == false){
-        alert("You must be logged in to vote");
+        $('#flashes').addClass('alert').html('You must be logged in to vote');
         return;
     }
     $.get('/news_items/' + a + '/vote_up.js', function(jsonObj){
