@@ -62,6 +62,7 @@
 	font-weight:bold;
 	padding:16px 16px;
 	text-shadow:1px 1px 0px #689324;
+	text-decoration: none;
 }.noowsButton:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
 	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
@@ -71,7 +72,7 @@
 	position:relative;
 	top:1px;
 }.noowsButton a {
-  text-decoration:none;
+  text-decoration: none;
   color: white;
 }.noowsedButton {
 	float: left;
