@@ -12,16 +12,19 @@ class NewsItem < ActiveRecord::Base
     self.last_clicked_at = Time.now
     self.total_votes += 1
     if self.save
-      if Vote.create!(:user => user, :news_item => self)
-        return true
-      end
+      return create_vote(user)
     end
-    return false
   end
 
   def self.is_valid_news_item?(item)
     return false if item.title.match /^Sponsored By/
     return true
+  end
+
+  private
+
+  def create_vote(user)
+    return Vote.create!(:user => user, :news_item => self) ? true : false
   end
 
 end
