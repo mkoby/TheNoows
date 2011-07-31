@@ -1,3 +1,6 @@
+body {
+    font-family: Times;
+}
 #header {
 	margin: 25px 25px 25px 25px;
 }.tagline {
@@ -34,6 +37,14 @@
 	text-decoration: underline;
 }
 
+#basicInstructions {
+	float: right;
+	margin-left:10px;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: left;
+}
+
 #itemList {
 	padding-left: 160px;
 }.pageList {
@@ -41,7 +52,6 @@
 }
 
 #newsitem {
-
 }.noowsButton {
 	float: left;
 	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
@@ -63,6 +73,7 @@
 	padding:16px 16px;
 	text-shadow:1px 1px 0px #689324;
 	text-decoration: none;
+
 }.noowsButton:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
 	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
@@ -99,7 +110,7 @@
 	position:relative;
 	top:1px;
 }.noowsButton a {
-text-decoration:none;
+    text-decoration:none;
 }
 
 .iteminfo {

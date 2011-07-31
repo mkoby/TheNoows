@@ -1,4 +1,5 @@
 class HomepageController < ApplicationController
+  before_filter :first_time_visiting
   layout 'main'
 
   def home
