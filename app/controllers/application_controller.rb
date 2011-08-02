@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user, :user_logged_in?
+  helper_method :current_user_session, :current_user, :user_logged_in?, :has_visited
 
   protected
 
@@ -46,6 +46,23 @@ class ApplicationController < ActionController::Base
         redirect_to user_login_path
         return false
       end
+    end
+
+    private
+
+    def first_time_visiting
+      cookies[:has_visited] = cookies[:has_visited] ? 1 : 0
+    end
+
+    def has_visited
+      return @has_visited if defined?(@has_visited)
+      @has_visited = false
+      if cookies[:has_visited] && cookies[:has_visited] == 1
+        @has_visited = true
+      else
+        cookies[:has_visited] = 1
+      end
+      return @has_visited
     end
 end
 

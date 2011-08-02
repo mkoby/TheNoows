@@ -6,6 +6,12 @@
     <div id="content">
 	    <%= render :partial => 'layouts/menu'%>
 	    <%= render :partial => 'layouts/flashes'%>
+	    <% unless has_visited || current_user %>
+	      <div style="text-align: center;">
+  	      First time here? <br/>Login &amp; click on the &quot;Noows?&quot; <br/>
+	        button to move an item to the top of the homepage
+	      </div>
+	    <% end %>
       <%= yield %>
     </div>
     <%= render :partial => 'layouts/footer'%>
