@@ -9,7 +9,7 @@ class HomepageController < ApplicationController
 
   def new
     @items = NewsItem.includes(:source, :users).paginate( :page => params[:page], :per_page => 15,
-                                                          :order => 'created_at DESC' )
+                                                          :order => 'published_at DESC' )
   end
 
   def category
