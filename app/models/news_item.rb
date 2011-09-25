@@ -22,7 +22,7 @@ class NewsItem < ActiveRecord::Base
   end
 
   private
-
+  
     def create_vote(user)
       return Vote.create!(:user => user, :news_item => self) ? true : false
     end
