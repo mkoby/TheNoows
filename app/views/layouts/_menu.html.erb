@@ -17,7 +17,12 @@
 		<ul>
 			<!-- Categories will go here when there is more than 1 -->
 		</ul>
+                <ul>
+                </ul>
 		<ul>
+                  <li>
+                    <%= link_to 'Noows Blog', 'http://blog.thenoows.com' %>
+                  </li>
 			<li>
 				<%= link_to_unless(current_user, image_tag("fb-login.png", :alt => 'Login with Facebook', :border => 0), new_oauth_path) do
 						link_to('Logout', logout_path)
