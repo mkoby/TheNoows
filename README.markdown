@@ -23,3 +23,5 @@ The main principle was to have a news site that couldn't easily be gamed.
 ## What's Here ##
 
 Contained here is the actual code I deployed (with some minor modes to fix small issues). There's not much to this as the site never had any algorithms for determining what made the front page. The idea was to eventually add an algorithm, but I just never got around to it.  There's code (Rails, HTML, CSS, & Javascript), and that's pretty much it.
+
+** NOTE ** The Facebook settings in the config/facebook.yml point to a Facebook application that no longer exists. It was strictly for development anyway, but I deleted to be on the safe side. You'll need to set up a Facebook app in their developer section to make the app work as is since it requires Facebook for authentication.
